@@ -34,17 +34,14 @@ User Requirements
 
 
 | Tables        | User 1: General User           | User 2: Agent  |
-| ------------- |:-------------:| -----:|
-| Role      | The general users will only | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| ------------- | ------------- | ----- |
+| Role      | The general users will onlybe able to browse listings.  | The administrator will manage all listings added to the system.|
+| Activity        |Can search for specific listings and see their details. They can do bond calculations.	| They have full access to the functionalities of the program. They can add, edit or remove listings from the system. ||
+| They cannot Interact with the listings. They do not have access to the agent dashboard.| are neat      |   None. |
 
-	    |	User 1: General User             |	User 2: Agent		      |
-    	    |:-----------------------------------|:-----------------------------------|
-Role        |	The general users will only      |   The administrator will manage    |
-	    |   be able to browse listings.      |   all listings added to the system.|
-Activity    |	Can search for specific listings and see their details. They can do bond calculations.	|They have full access to the functionalities of the program. They can add, edit or remove listings from the system. |
-Limitations |	They cannot Interact with the listings. They do not have access to the agent dashboard.	|None.|
+
+Activity    |	|
+ |		||
 
 
 
