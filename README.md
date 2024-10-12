@@ -32,6 +32,13 @@ The program will serve as the companion this business needs, simplifying their a
 Disclaimer: This PAT does not aim to have an optimal security system. 
 User Requirements
 
+
+| Tables        | User 1: General User           | User 2: Agent  |
+| ------------- |:-------------:| -----:|
+| Role      | The general users will only | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 	    |	User 1: General User             |	User 2: Agent		      |
     	    |:-----------------------------------|:-----------------------------------|
 Role        |	The general users will only      |   The administrator will manage    |
