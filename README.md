@@ -1,27 +1,5 @@
-IT PAT 2024 – Phase 1
-~ Ruan Oosthuizen
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# IT PAT 2024 – Phase 1
+### ~ Ruan Oosthuizen
 
 
 Table of Contents
@@ -40,17 +18,7 @@ Screen 6: Property Edit	13
 Screen 2: Property Search	17
 
 
-
-
-
-
-
-
-
-
-
-
-Scenario & Scope
+## Scenario & Scope
 
 The topic that I have chosen for the PAT: A house listing program for a real estate agent business, where external users can also see listings.
 A real estate agent business has asked me to design a program that all the agents in the business can use to see and upload all listings with their relevant information and calculate bonds. The specifications of the program: 
@@ -64,21 +32,18 @@ The program will serve as the companion this business needs, simplifying their a
 Disclaimer: This PAT does not aim to have an optimal security system. 
 User Requirements
 
-	User 1: General User	User 2: Agent
-Role	The general users will only be able to browse listings.	The administrator will manage all listings added to the system.
-Activity	Can search for specific listings and see their details. They can do bond calculations.	They have full access to the functionalities of the program. They can add, edit or remove listings from the system. 
-Limitations	They cannot Interact with the listings. They do not have access to the agent dashboard.	None.
+	    |	User 1: General User             |	User 2: Agent		      |
+    	    |:-----------------------------------|:-----------------------------------|
+Role        |	The general users will only      |   The administrator will manage    |
+	    |   be able to browse listings.      |   all listings added to the system.|
+Activity    |	Can search for specific listings and see their details. They can do bond calculations.	|They have full access to the functionalities of the program. They can add, edit or remove listings from the system. |
+Limitations |	They cannot Interact with the listings. They do not have access to the agent dashboard.	|None.|
 
 
 
+## Database Design
 
-
-
-
-
-Database Design
-
-tblProperty
+### tblProperty
 	Field Name	Data Type	Field Size
 PK	ID	Auto Number	Long Integer
 	PropPrice	Number	Integer
@@ -92,18 +57,13 @@ FK	Province	Number	Long Integer
 	Adress	Short Text	30
 
 
-
-
-
-
-
-tblProvince
+### tblProvince
 	Field Name	Data Type	Field Size
 PK	ID	Auto Number	Long Integer
 FK	Province	Short Text	30
 
 
-tblPropertyType
+### tblPropertyType
 	Field Name	Data Type	Field Size
 PK	ID	Auto Number	Long Integer
 	PropertyType	String	20
@@ -111,7 +71,7 @@ PK	ID	Auto Number	Long Integer
 
  
  
-Data Dictionary
+## Data Dictionary
 
 Classes and Objects
 TUser
@@ -129,12 +89,12 @@ Methods
 + = public
 
 
-Text File
+## Text File
 It displays an example of the registered agents and their passwords.
 
  
  
-Array (2 dimensional)
+## Array (2 dimensional)
 
 A parallel array will be used to store the data from the previously displayed text file.
 Example of array data: arrName
@@ -146,32 +106,13 @@ Example of array data where it is not encrypted: arrPass
 admin	Password123!	SecurePass456@	Welcome789#	StrongPass101$
  
  
-Navigation/ Flow Diagram
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Navigation/ Flow Diagram
 
 
 
 
  
-Graphical User Interface Design
+## Graphical User Interface Design
 
 Screen 1: Welcome Page
  
@@ -192,9 +133,9 @@ Screen 5: Property Details
 Screen 6: Property Edit (Agent)
   
  
-IPO
+## IPO
 
-Screen 6: Property Edit
+### Screen 6: Property Edit
 Input
 Input	Source	Data Type	Format	GUI Component	Validation
 iErfSize	Mouse Button/ Keyboard	Integer	Number	edtErfSize	There will be checked if the input is not zero.
@@ -223,8 +164,6 @@ What processing needs to be done	How processing will be done
 8. Refresh Database and Update Grid Display	Refresh the dataset after saving to ensure the latest information is displayed in the grid (frmAgentDash).
 
 
-
-
  
 Pseudo code / Example algorithms for four of these processes:
 ________________________________________
@@ -247,12 +186,6 @@ if cmbProvince.ItemIndex is less than or equal to 0 then
     Exit procedure
 else
     Set province to the selected index value from cmbProvince
-
-
-
-
-
-
 
 
 6. Refresh Database and Update Grid Display
@@ -280,11 +213,8 @@ Province	Province: <Selected province name>	cmbProvince: TComboBox, dbgProp: TDB
 Property Type	Property Type: <Type of property>	cmbType: TComboBox, dbgProp: TDBGrid
 
 
-
-
-
  
-Screen 2: Property Search
+### Screen 2: Property Search
 Input
 Input	Source	Data Type	Format	GUI Component	Validation
 rPrice	Keyboard	Real	Decimal	edtPrice.text	There will be checked if a Number is entered(Not empty or letters) If nothing is entered the filter will not be applied
@@ -309,11 +239,6 @@ What processing needs to be done	How processing will be done
 6. Delete a Listing	If the user confirms, the currently selected listing will be deleted from the database using dmData.tblProp.Delete.
 7. View Detailed Property Information	On clicking "View", the detailed information of the selected property is shown in a new form using ShowListingDetail.
 8. Add or Edit a Property	Depending on the mode (add or edit), the form for property details will open with ShowPropEdit to either create or edit.
-
-
-
-
-
 
  
 Pseudo code / Example algorithms for four of these processes:
