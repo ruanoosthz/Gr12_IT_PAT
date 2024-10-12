@@ -78,13 +78,13 @@ Disclaimer: This PAT does not aim to have an optimal security system.
  
 ## Data Dictionary
 
-|### Classes and Objects|
+| ** Classes and Objects ** |
 | --- |
 |TUser|
 |Attributes|
 |- fUsername : String;|
 |- fIsAgent: Boolean|
-| ### Methods|
+| `** Methods **`|
 |+ Constructor Create( parameters : pName : String; pIsAgent : Boolean);|
 |+ property Username : String read fUsername write fUsername; |
 |( These properties allow for easy access setting or)|
