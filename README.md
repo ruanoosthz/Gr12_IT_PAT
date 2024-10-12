@@ -30,8 +30,9 @@ There must also be a feature to view listings in more detail. Every agent can up
 The program will serve as the companion this business needs, simplifying their admin processes and boosting their efficiency as partners. 
 
 Disclaimer: This PAT does not aim to have an optimal security system. 
-User Requirements
 
+
+## User Requirements
 
 | Tables        | User 1: General User           | User 2: Agent  |
 | ------------- | ------------- | ----- |
@@ -40,54 +41,55 @@ User Requirements
 | They cannot Interact with the listings. They do not have access to the agent dashboard.| are neat      |   None. |
 
 
-Activity    |	|
- |		||
-
-
-
 ## Database Design
 
 ### tblProperty
-	Field Name	Data Type	Field Size
-PK	ID	Auto Number	Long Integer
-	PropPrice	Number	Integer
-FK	PropType	Number	Long Integer
-	ErfSize	Number	Integer
-	ParkingSpace	Number	Integer
-	Bedrooms	Number	Integer
-	Bathrooms	Number	Integer
-FK	Province	Number	Long Integer
-	Suburb	Short Text	30
-	Adress	Short Text	30
+
+|	| Field Name       | Data Type | Field Size |
+|:-----:| ------------- |-------------| -----|
+|PK	| ID      | Auto Number |Long Integer |
+|	| PropPrice    | Number       |  Integer |
+|FK	| PropType |  Number  |  Long Integer|
+| |ErfSize |Number |Integer |
+| | ParkingSpace|Number | Integer|
+| |Bedrooms | Number| Integer|
+| | Bathrooms|Number | Integer|
+|FK |Province |Number |Long Integer |
+| | Suburb| Short Text|30 |
+| | Adress| Short Text|30 |
 
 
 ### tblProvince
-	Field Name	Data Type	Field Size
-PK	ID	Auto Number	Long Integer
-FK	Province	Short Text	30
+
+| | Field Name        | Data Type          | Field Size |
+| | ------------- |:-------------:| -----:|
+|PK| ID     | Auto Number | Long Integer|
+|FK| Province      | Short Text    |  30 |
 
 
 ### tblPropertyType
-	Field Name	Data Type	Field Size
-PK	ID	Auto Number	Long Integer
-	PropertyType	String	20
+
+| | Field Name        | Data Type          | Field Size |
+| | ------------- |:-------------:| -----:|
+|PK| ID     | Auto Number | Long Integer|
+| | PropertyType      | String    |  20 |
 
 
- 
  
 ## Data Dictionary
 
-Classes and Objects
-TUser
-Attributes
-- fUsername : String;
-- fIsAgent: Boolean
-Methods
-+ Constructor Create( parameters : pName : String; pIsAgent : Boolean);
-+ property Username : String read fUsername write fUsername; 
-( These properties allow for easy access setting or)
-+ property IsAgent : Boolean read fIsAgent write fIsAgent;   
-( getting the User's Username and IsAgent status)
+|Classes and Objects|
+| --- |
+|TUser|
+|Attributes|
+|- fUsername : String;|
+|- fIsAgent: Boolean|
+|Methods|
+|+ Constructor Create( parameters : pName : String; pIsAgent : Boolean);|
+|+ property Username : String read fUsername write fUsername; |
+|( These properties allow for easy access setting or)|
+|+ property IsAgent : Boolean read fIsAgent write fIsAgent;|   
+|( getting the User's Username and IsAgent status)|
 
 - = private 
 + = public
@@ -101,13 +103,16 @@ It displays an example of the registered agents and their passwords.
 ## Array (2 dimensional)
 
 A parallel array will be used to store the data from the previously displayed text file.
-Example of array data: arrName
-1	2	3	4	5
-admin	John Smith	Jane Doe	Michael Johnson	Emily Davis
 
-Example of array data where it is not encrypted: arrPass
-1	2	3	4	5
-admin	Password123!	SecurePass456@	Welcome789#	StrongPass101$
+### Example of array data: arrName
+|1	|2	|3	|4 	|5|
+| :---:	| :---:	| :---:	| :---:	| :---: |
+|admin  |	John Smith|	Jane Doe|	Michael Johnson|	Emily Davis|
+
+### Example of array data where it is not encrypted: arrPass
+|1	|2	|3	|4 	|5|
+| :---:	| :---:	| :---:	| :---:	| :---: |
+|admin|	Password123!|	SecurePass456@|	Welcome789#|	StrongPass101$|
  
  
 ## Navigation/ Flow Diagram
@@ -140,7 +145,7 @@ Screen 6: Property Edit (Agent)
 ## IPO
 
 ### Screen 6: Property Edit
-Input
+#### Input
 Input	Source	Data Type	Format	GUI Component	Validation
 iErfSize	Mouse Button/ Keyboard	Integer	Number	edtErfSize	There will be checked if the input is not zero.
 …
@@ -156,7 +161,7 @@ iPropType	Mouse Button	Index	Number	cmbPropType	There will be checked that a Pro
 ..
 Dialogs.MessageDlg(‘Select a Prop Type.', mtError,[mbOk], 0, mbOk);
 
-Processing
+#### Processing
 What processing needs to be done	How processing will be done
 1. Load Existing Property Details	Load data from the database into the form fields (Price, Suburb, Bedrooms, etc.) using the LoadExistingPropertyDetails method.
 2. Validate Property Price	Ensure the input in the edtPrice field is a valid integer using TryStrToInt. If invalid, show a message and exit.
@@ -169,7 +174,7 @@ What processing needs to be done	How processing will be done
 
 
  
-Pseudo code / Example algorithms for four of these processes:
+##### Pseudo code / Example algorithms for four of these processes:
 ________________________________________
 2. Validate Property Price
 Pseudo Code:
@@ -208,7 +213,7 @@ begin
 end;
 
 
-Output
+#### Output
 Data	Format	GUI Component
 Property Price	Price: <Price in integer format>	edtPrice: TEdit, dbgProp: TDBGrid
 Parking Spaces	Parking Spaces: <Number of parking spaces>	sedPark: TSpinEdit
@@ -219,7 +224,7 @@ Property Type	Property Type: <Type of property>	cmbType: TComboBox, dbgProp: TDB
 
  
 ### Screen 2: Property Search
-Input
+#### Input
 Input	Source	Data Type	Format	GUI Component	Validation
 rPrice	Keyboard	Real	Decimal	edtPrice.text	There will be checked if a Number is entered(Not empty or letters) If nothing is entered the filter will not be applied
 …
@@ -233,7 +238,7 @@ Dialogs.MessageDlg(‘Choose a symbol', mtError,[mbOk], 0, mbOk);
 
 
 
-Processing
+#### Processing
 What processing needs to be done	How processing will be done
 1. Load Listings Data on Form Activation	On form activation, the SQL query will be executed to load property listings into the grid using dmData.ExecQry.
 2. Validate Price Filter	Check if a valid number is entered in the edtPrice field. If invalid, show a message and exit the filter procedure.
@@ -245,7 +250,7 @@ What processing needs to be done	How processing will be done
 8. Add or Edit a Property	Depending on the mode (add or edit), the form for property details will open with ShowPropEdit to either create or edit.
 
  
-Pseudo code / Example algorithms for four of these processes:
+##### Pseudo code / Example algorithms for four of these processes:
 ________________________________________
 2. Validate Price Filter
 Pseudo Code:
@@ -279,7 +284,7 @@ Example Code:
 PropertyID := dbgSearch.DataSource.DataSet.FieldByName('ID').AsInteger;
 ShowListingDetail(PropertyID);
 
-Output
+##### Output
 Data	Format	GUI Component
 Property Price	"Property Price: <Price in currency format>"	dbgSearch: TDBGrid, edtPrice: TEdit
 Bedrooms	"Bedrooms: <Number of bedrooms>"	dbgSearch: TDBGrid, sedBedroom: TSpinEdit
