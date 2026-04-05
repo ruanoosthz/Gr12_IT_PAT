@@ -123,77 +123,84 @@ A parallel array will be used to store the data from the previously displayed te
  
 ## Graphical User Interface Design
 
-Screen 1: Welcome Page
- <img width="719" height="556" alt="image" src="https://github.com/user-attachments/assets/6eb63a13-426a-441f-b1d7-42375047a2ea" />
+## Screen 1: Welcome Page
+
+<img width="719" height="556" alt="image" src="https://github.com/user-attachments/assets/6eb63a13-426a-441f-b1d7-42375047a2ea" />
 
 
-Screen 2: Login Page (Agent)
- <img width="718" height="559" alt="image" src="https://github.com/user-attachments/assets/79de3a14-f1f5-4e1e-a24e-efaabb6da0d9" />
+## Screen 2: Login Page (Agent)
+
+<img width="718" height="559" alt="image" src="https://github.com/user-attachments/assets/79de3a14-f1f5-4e1e-a24e-efaabb6da0d9" />
 
 
-Screen 3: Agent Dashboard (Agent)
- <img width="769" height="597" alt="image" src="https://github.com/user-attachments/assets/435b9279-9af3-4dde-ab95-1d66a79002ad" />
+## Screen 3: Agent Dashboard (Agent)
+
+<img width="769" height="597" alt="image" src="https://github.com/user-attachments/assets/435b9279-9af3-4dde-ab95-1d66a79002ad" />
 
 
-Screen 4: Property Search
- <img width="772" height="594" alt="image" src="https://github.com/user-attachments/assets/765f71c0-a01d-496b-bdff-da53deb51f1e" />
+## Screen 4: Property Search
+
+<img width="772" height="594" alt="image" src="https://github.com/user-attachments/assets/765f71c0-a01d-496b-bdff-da53deb51f1e" />
 
 
-Screen 5: Property Details
- <img width="791" height="616" alt="image" src="https://github.com/user-attachments/assets/c5fecf29-ce35-45af-b097-ddf8aa793502" />
+## Screen 5: Property Details
+
+<img width="791" height="616" alt="image" src="https://github.com/user-attachments/assets/c5fecf29-ce35-45af-b097-ddf8aa793502" />
 
 
-Screen 6: Property Edit (Agent)
-  <img width="848" height="659" alt="image" src="https://github.com/user-attachments/assets/f5f09e4c-03fe-4b22-bfe2-4c628b1e4c56" />
+## Screen 6: Property Edit (Agent)
+  
+<img width="848" height="659" alt="image" src="https://github.com/user-attachments/assets/f5f09e4c-03fe-4b22-bfe2-4c628b1e4c56" />
 
- 
+
+
 ## IPO
 
-### Screen 6: Property Edit
-#### Input
-Input	Source	Data Type	Format	GUI Component	Validation
-iErfSize	Mouse Button/ Keyboard	Integer	Number	edtErfSize	There will be checked if the input is not zero.
-…
-Dialogs.MessageDlg(‘Invalid erf size', mtError,[mbOk], 0, mbOk);
-rPropertyPrice	Keyboard
-	Real	Number	edtPrice	There will be checked if a Number is entered(Not empty or letters)
-…
-Dialogs.MessageDlg(‘Enter a valid price.', mtError,[mbOk], 0, mbOk);
-sAddress	Keyboard	String	Text	edtAddress	There will be checked that an address is entered. (not nul)
-..
-Dialogs.MessageDlg(‘Enter an owner name.', mtError,[mbOk], 0, mbOk);
-iPropType	Mouse Button	Index	Number	cmbPropType	There will be checked that a Property type is selected.
-..
-Dialogs.MessageDlg(‘Select a Prop Type.', mtError,[mbOk], 0, mbOk);
+---
 
-#### Processing
-What processing needs to be done	How processing will be done
-1. Load Existing Property Details	Load data from the database into the form fields (Price, Suburb, Bedrooms, etc.) using the LoadExistingPropertyDetails method.
-2. Validate Property Price	Ensure the input in the edtPrice field is a valid integer using TryStrToInt. If invalid, show a message and exit.
-3. Validate Suburb Field	Check if the edtSuburb field is filled. If it's empty, show an error message and exit the procedure.
-4. Validate Address Field	Check if the edtAddress field is filled. If it's empty, show an error message and exit the procedure.
-5. Set Province	Validate that a province is selected from cmbProvince. If no selection is made, show an error message and exit.
-6. Set Property Type	Validate that a property type is selected from cmbType. If no selection is made, show an error message and exit.
-7. Save Property Data	Depending on the mode (insert/edit), save the property data to the database and update the respective fields.
-8. Refresh Database and Update Grid Display	Refresh the dataset after saving to ensure the latest information is displayed in the grid (frmAgentDash).
+# Screen 6: Property Edit
 
+## Input
 
- 
-##### Pseudo code / Example algorithms for four of these processes:
-________________________________________
-2. Validate Property Price
+| Input | Source | Data Type | Format | GUI Component | Validation |
+|------|--------|-----------|--------|--------------|------------|
+| iErfSize | Mouse Button / Keyboard | Integer | Number | edtErfSize | Check that value is not zero. Show message: "Invalid erf size" |
+| iPropertyPrice | Keyboard | Integer | Number | edtPrice | Check that a valid number is entered (not empty or letters). Show message: "Enter a valid price." |
+| sAddress | Keyboard | String | Text | edtAddress | Check that an address is entered (not empty). Show message: "Enter an address." |
+| iPropType | Mouse Button | Index | Number | cmbType | Check that a property type is selected. Show message: "Select a Prop Type." |
+
+---
+
+## Processing
+
+| What processing needs to be done | How processing will be done |
+|----------------------------------|------------------------------|
+| 1. Load Existing Property Details | Load data from the database into form fields using LoadExistingPropertyDetails method. |
+| 2. Validate Property Price | Ensure edtPrice contains a valid integer using TryStrToInt. If invalid, show message and exit. |
+| 3. Validate Suburb Field | Check if edtSuburb is filled. If empty, show error message and exit. |
+| 4. Validate Address Field | Check if edtAddress is filled. If empty, show error message and exit. |
+| 5. Set Province | Ensure a province is selected from cmbProvince. If not, show error and exit. |
+| 6. Set Property Type | Ensure a property type is selected from cmbType. If not, show error and exit. |
+| 7. Save Property Data | Save property data to database depending on insert/edit mode. |
+| 8. Refresh Database and Update Grid Display | Refresh dataset and update frmAgentDash grid display. |
+
+---
+
+### Pseudo Code / Example Algorithms
+
+#### 2. Validate Property Price
 Pseudo Code:
 if TryStrToInt(edtPrice.Text, iInteger) is False then
     Show error message "Please enter a valid price"
     Exit procedure
 
-3. Validate Suburb Field
+#### 3. Validate Suburb Field
 Pseudo Code:
 if Trim(edtSuburb.Text) is empty then
     Show error message "Please enter a suburb"
     Exit procedure
 
-5. Set Province
+#### 5. Set Province
 Pseudo Code:
 if cmbProvince.ItemIndex is less than or equal to 0 then
     Show error message "Please select a province"
@@ -202,7 +209,7 @@ else
     Set province to the selected index value from cmbProvince
 
 
-6. Refresh Database and Update Grid Display
+#### 6. Refresh Database and Update Grid Display
 Example Code:
 dmData.ExecQry('SELECT tblProperty.ID, FORMAT(PropPrice, "CURRENCY") AS PropertyPrice, ' +
                'Suburb, Address, tblPropType.PropertyType FROM tblProperty LEFT JOIN ' +
@@ -218,46 +225,52 @@ begin
 end;
 
 
-#### Output
-Data	Format	GUI Component
-Property Price	Price: <Price in integer format>	edtPrice: TEdit, dbgProp: TDBGrid
-Parking Spaces	Parking Spaces: <Number of parking spaces>	sedPark: TSpinEdit
-Erf Size	rf Size: <Size of erf in square meters>	sedErf: TSpinEdit
-Province	Province: <Selected province name>	cmbProvince: TComboBox, dbgProp: TDBGrid
-Property Type	Property Type: <Type of property>	cmbType: TComboBox, dbgProp: TDBGrid
 
+---
 
- 
-### Screen 2: Property Search
-#### Input
-Input	Source	Data Type	Format	GUI Component	Validation
-rPrice	Keyboard	Real	Decimal	edtPrice.text	There will be checked if a Number is entered(Not empty or letters) If nothing is entered the filter will not be applied
-…
-Dialogs.MessageDlg(‘Enter a valid price.', mtError,[mbOk], 0, mbOk);
-iProvince	Mouse Button	Index	Number	cmbProvince	There will be checked that a Province is chosen(if Index 0 then filter will not be applied).
-iRooms	Mouse Button	Integer	Number	sedRooms	There will be checked if a value is selected, if not, filter will not be applied
-sSymbol	Mouse Button	String	String	cmbSymbol	There will be checked that a Symbol is chosen(if Index 0 then filter will not be applied).
-If price is entered
-…
-Dialogs.MessageDlg(‘Choose a symbol', mtError,[mbOk], 0, mbOk);
+## Output
 
+| Data | Format | GUI Component |
+|------|--------|--------------|
+| Property Price | Price: <Price in integer format> | edtPrice: TEdit, dbgProp: TDBGrid |
+| Parking Spaces | Parking Spaces: <Number of parking spaces> | sedPark: TSpinEdit |
+| Erf Size | Erf Size: <Size in square meters> | sedErf: TSpinEdit |
+| Province | Province: <Selected province name> | cmbProvince: TComboBox, dbgProp: TDBGrid |
+| Property Type | Property Type: <Type of property> | cmbType: TComboBox, dbgProp: TDBGrid |
 
+---
 
-#### Processing
-What processing needs to be done	How processing will be done
-1. Load Listings Data on Form Activation	On form activation, the SQL query will be executed to load property listings into the grid using dmData.ExecQry.
-2. Validate Price Filter	Check if a valid number is entered in the edtPrice field. If invalid, show a message and exit the filter procedure.
-3. Set Province Filter	Check if a province is selected from cmbProvince. If not, no filter will be applied for the province.
-4. Set Bedrooms Filter	Check the value of the sedBedroom control. If 0, no filter will be applied; otherwise, filter by number of bedrooms.
-5. Filter Listings by User Input	Apply the filters for price, bedrooms, suburb, and province in the SQL query and display the filtered data in dbgSearch.
-6. Delete a Listing	If the user confirms, the currently selected listing will be deleted from the database using dmData.tblProp.Delete.
-7. View Detailed Property Information	On clicking "View", the detailed information of the selected property is shown in a new form using ShowListingDetail.
-8. Add or Edit a Property	Depending on the mode (add or edit), the form for property details will open with ShowPropEdit to either create or edit.
+# Screen 2: Property Search
 
- 
-##### Pseudo code / Example algorithms for four of these processes:
-________________________________________
-2. Validate Price Filter
+## Input
+
+| Input | Source | Data Type | Format | GUI Component | Validation |
+|------|--------|-----------|--------|--------------|------------|
+| rPrice | Keyboard | Real | Decimal | edtPrice | Check valid number. If empty, filter not applied. Show message if invalid. |
+| iProvince | Mouse Button | Index | Number | cmbProvince | If index = 0, filter not applied. |
+| iRooms | Mouse Button | Integer | Number | sedRooms | If value not selected, filter not applied. |
+| sSymbol | Mouse Button | String | String | cmbSymbol | If price entered, symbol must be selected. |
+
+---
+
+## Processing
+
+| What processing needs to be done | How processing will be done |
+|----------------------------------|------------------------------|
+| 1. Load Listings Data | Execute SQL query on form activation using dmData.ExecQry. |
+| 2. Validate Price Filter | Check if edtPrice contains valid number. If invalid, show message and exit. |
+| 3. Set Province Filter | Apply province filter only if selected. |
+| 4. Set Bedrooms Filter | Apply bedrooms filter if value > 0. |
+| 5. Filter Listings | Apply filters in SQL query and display results in dbgSearch. |
+| 6. Delete Listing | Delete selected listing after confirmation. |
+| 7. View Detailed Property | Show details using ShowListingDetail. |
+| 8. Add or Edit Property | Open property edit form using ShowPropEdit. |
+
+---
+
+### Pseudo Code / Example Algorithms
+
+#### 2. Validate Price Filter
 Pseudo Code:
 if edtPrice.Text is empty then
     sPrice := 'No price filter'
@@ -267,14 +280,14 @@ else
     Show error message "Please enter a valid property price"
     Exit procedure
 ________________________________________
-3. Set Province Filter
+#### 3. Set Province Filter
 Pseudo Code:
 if cmbProvince.ItemIndex <= 0 then
     Set sProvince to 'No province filter'
 else
     Set sProvince to 'Province = selected province value'
 ________________________________________
-5. Filter Listings by User Input
+#### 5. Filter Listings by User Input
 Example Code:
 dmDAta.ExecQry('SELECT tblProperty.ID, FORMAT(PropPrice, "CURRENCY") AS PropertyPrice, ' +
                'Suburb, Address, tblPropType.PropertyType FROM tblProperty LEFT JOIN ' +
@@ -284,18 +297,20 @@ ________________________________________
 
 
 
-7. View Detailed Property Information
+#### 7. View Detailed Property Information
 Example Code:
 PropertyID := dbgSearch.DataSource.DataSet.FieldByName('ID').AsInteger;
 ShowListingDetail(PropertyID);
 
-##### Output
-Data	Format	GUI Component
-Property Price	"Property Price: <Price in currency format>"	dbgSearch: TDBGrid, edtPrice: TEdit
-Bedrooms	"Bedrooms: <Number of bedrooms>"	dbgSearch: TDBGrid, sedBedroom: TSpinEdit
-Bathrooms	"Bathrooms: <Number of bathrooms>"	sedBath: TSpinEdit
-Property Type	"Property Type: <Type of property>"	cmbType: TComboBox, dbgSearch: TDBGrid
-Province	"Province: <Selected province name>"	cmbProvince: TComboBox, dbgSearch: TDBGrid
 
+---
 
+## Output
 
+| Data | Format | GUI Component |
+|------|--------|--------------|
+| Property Price | Property Price: <Price in currency format> | dbgSearch: TDBGrid, edtPrice |
+| Bedrooms | Bedrooms: <Number of bedrooms> | dbgSearch: TDBGrid, sedBedroom |
+| Bathrooms | Bathrooms: <Number of bathrooms> | sedBath: TSpinEdit |
+| Property Type | Property Type: <Type of property> | cmbType: TComboBox, dbgSearch |
+| Province | Province: <Selected province name> | cmbProvince: TComboBox, dbgSearch |
