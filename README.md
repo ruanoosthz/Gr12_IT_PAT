@@ -82,15 +82,17 @@ Disclaimer: This PAT does not aim to have an optimal security system.
 |Attributes|
 |- fUsername : String;|
 |- fIsAgent: Boolean|
-| ** Methods **|
+
+| ** Methods ** |
+| --- |
 |+ Constructor Create( parameters : pName : String; pIsAgent : Boolean);|
 |+ property Username : String read fUsername write fUsername; |
 |( These properties allow for easy access setting or)|
 |+ property IsAgent : Boolean read fIsAgent write fIsAgent;|   
 |( getting the User's Username and IsAgent status)|
 
-- = private 
-+ = public
+'-' = private 
+'+' = public
 
 
 ## Text File
