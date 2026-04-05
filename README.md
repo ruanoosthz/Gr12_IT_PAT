@@ -1,21 +1,19 @@
-# IT PAT 2024 – Phase 1
+# IT PAT 2024
 ### ~ Ruan Oosthuizen
 
+## Table of Contents
 
-Table of Contents
-IT PAT 2024 – Phase 1	1
-Scenario & Scope	3
-User Requirements	4
-Database Design	5
-Data Dictionary	7
-Classes and Objects	7
-Text File	7
-Array (2 dimensional)	8
-Navigation/ Flow Diagram	9
-Graphical User Interface Design	10
-IPO	13
-Screen 6: Property Edit	13
-Screen 2: Property Search	17
+- [Scenario & Scope](#scenario--scope)
+- [User Requirements](#user-requirements)
+- [Database Design](#database-design)
+- [Data Dictionary](#data-dictionary)
+- [Text File](#text-file)
+- [Array (2 dimensional)](#array-2-dimensional)
+- [Navigation/ Flow Diagram](#navigation-flow-diagram)
+- [Graphical User Interface Design](#graphical-user-interface-design)
+- [IPO](#ipo)
+  - [Screen 6: Property Edit](#screen-6-property-edit)
+  - [Screen 2: Property Search](#screen-2-property-search)
 
 
 ## Scenario & Scope
@@ -97,6 +95,7 @@ Disclaimer: This PAT does not aim to have an optimal security system.
 
 ## Text File
 It displays an example of the registered agents and their passwords.
+<img width="638" height="412" alt="image" src="https://github.com/user-attachments/assets/7318c363-e267-4b16-9f56-12e115e237f4" />
 
  
  
@@ -117,6 +116,7 @@ A parallel array will be used to store the data from the previously displayed te
  
 ## Navigation/ Flow Diagram
 
+<img width="713" height="721" alt="image" src="https://github.com/user-attachments/assets/a0bf2a08-f035-4af9-b418-dda2c1342eab" />
 
 
 
@@ -124,23 +124,28 @@ A parallel array will be used to store the data from the previously displayed te
 ## Graphical User Interface Design
 
 Screen 1: Welcome Page
- 
+ <img width="719" height="556" alt="image" src="https://github.com/user-attachments/assets/6eb63a13-426a-441f-b1d7-42375047a2ea" />
+
 
 Screen 2: Login Page (Agent)
- 
+ <img width="718" height="559" alt="image" src="https://github.com/user-attachments/assets/79de3a14-f1f5-4e1e-a24e-efaabb6da0d9" />
+
 
 Screen 3: Agent Dashboard (Agent)
- 
+ <img width="769" height="597" alt="image" src="https://github.com/user-attachments/assets/435b9279-9af3-4dde-ab95-1d66a79002ad" />
+
 
 Screen 4: Property Search
- 
+ <img width="772" height="594" alt="image" src="https://github.com/user-attachments/assets/765f71c0-a01d-496b-bdff-da53deb51f1e" />
 
 
 Screen 5: Property Details
- 
+ <img width="791" height="616" alt="image" src="https://github.com/user-attachments/assets/c5fecf29-ce35-45af-b097-ddf8aa793502" />
+
 
 Screen 6: Property Edit (Agent)
-  
+  <img width="848" height="659" alt="image" src="https://github.com/user-attachments/assets/f5f09e4c-03fe-4b22-bfe2-4c628b1e4c56" />
+
  
 ## IPO
 
