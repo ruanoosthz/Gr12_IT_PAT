@@ -190,31 +190,38 @@ A parallel array will be used to store the data from the previously displayed te
 
 #### 2. Validate Property Price
 Pseudo Code:
+```
 if TryStrToInt(edtPrice.Text, iInteger) is False then
     Show error message "Please enter a valid price"
     Exit procedure
+```
 
 #### 3. Validate Suburb Field
 Pseudo Code:
+```
 if Trim(edtSuburb.Text) is empty then
     Show error message "Please enter a suburb"
     Exit procedure
+```
 
 #### 5. Set Province
 Pseudo Code:
+```
 if cmbProvince.ItemIndex is less than or equal to 0 then
     Show error message "Please select a province"
     Exit procedure
 else
     Set province to the selected index value from cmbProvince
-
+```
 
 #### 6. Refresh Database and Update Grid Display
 Example Code:
+``` pascal
 dmData.ExecQry('SELECT tblProperty.ID, FORMAT(PropPrice, "CURRENCY") AS PropertyPrice, ' +
                'Suburb, Address, tblPropType.PropertyType FROM tblProperty LEFT JOIN ' +
                'tblPropType ON tblProperty.PropertyType = tblPropType.ID');
-
+```
+``` pascal
 with frmAgentDash do
 begin
   dbgProp.Columns[0].Width := 30;
@@ -223,7 +230,7 @@ begin
   dbgProp.Columns[3].Width := 180;
   dbgProp.Columns[4].Width := 220;
 end;
-
+```
 
 
 ---
@@ -272,6 +279,7 @@ end;
 
 #### 2. Validate Price Filter
 Pseudo Code:
+```
 if edtPrice.Text is empty then
     sPrice := 'No price filter'
 else if edtPrice.Text is a valid float number then
@@ -279,28 +287,35 @@ else if edtPrice.Text is a valid float number then
 else
     Show error message "Please enter a valid property price"
     Exit procedure
+```
 ________________________________________
 #### 3. Set Province Filter
 Pseudo Code:
+```
 if cmbProvince.ItemIndex <= 0 then
     Set sProvince to 'No province filter'
 else
     Set sProvince to 'Province = selected province value'
+```
 ________________________________________
 #### 5. Filter Listings by User Input
 Example Code:
+``` pascal
 dmDAta.ExecQry('SELECT tblProperty.ID, FORMAT(PropPrice, "CURRENCY") AS PropertyPrice, ' +
                'Suburb, Address, tblPropType.PropertyType FROM tblProperty LEFT JOIN ' +
                'tblPropType ON tblProperty.PropertyType = tblPropType.ID ' +
                'WHERE ' + sProvince + ' AND ' + sSuburb + ' AND ' + sRoom + ' AND ' + sPrice);
+```
 ________________________________________
 
 
 
 #### 7. View Detailed Property Information
+``` pascal
 Example Code:
 PropertyID := dbgSearch.DataSource.DataSet.FieldByName('ID').AsInteger;
 ShowListingDetail(PropertyID);
+```
 
 
 ---
