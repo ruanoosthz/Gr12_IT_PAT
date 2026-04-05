@@ -1,6 +1,8 @@
 # IT PAT 2024
 ### ~ Ruan Oosthuizen
 
+#### (for an instructional video, please email me)
+
 ## Table of Contents
 
 - [Scenario & Scope](#scenario--scope)
